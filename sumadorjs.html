@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+     <title>Simple calculator</title>
+     <script type="text/javascript" charset="utf-8">
+       function changer (id, newValue) {
+         var element = document.getElementById(id);
+         element.innerHTML = newValue;
+       }
+       function adder (optag, restag) {
+         var operation = document.getElementById(optag);
+         var operands = operation.innerHTML.split ("+");
+         var result = parseInt(operands[0]) +
+             parseInt(operands[1]);
+         changer (restag, '=' + result);
+       }
+       function changeOperands() {
+         var op = document.getElementById('op');
+         var oper1 = Math.floor(Math.random()*100);
+         var oper2 = Math.floor(Math.random()*100);
+         contenidoOp = oper1 + '+' + oper2;
+         op.innerHTML = contenidoOp;
+         var res = document.getElementById('result');
+         res.innerHTML = '= ..';
+       }
+     </script>
+   </head>
+   <body>
+     <p>Adder... <span id='op'>5+3</span><span id='result'></span> <a href="javascript:adder('op','result')">Add!</a></p>
+     <a href= "javascript:changeOperands()">¡Dame otra suma!</a>
+   </body>
+</html>
